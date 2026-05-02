@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///C:/Users/josef/Downloads/dashboard_2.html -->
+<html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Mayoral Newborn PE 2026</title>
+<link href="./dashboard_files/css2" rel="stylesheet">
+<script src="./dashboard_files/papaparse.min.js.download"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+:root {
+  --blue: #5aade0; --blue-dark: #2e7db8; --blue-deeper: #1a5f8a;
+  --bg: #f0f6fc; --card: #ffffff; --border: #d0e4f4;
+  --text: #0d2d4f; --muted: #5a88b5; --gold: #f0b429;
+}
+body { background: var(--bg); padding: 1rem; min-height: 100vh; }
+.header { background: var(--blue); border-radius: 14px; padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+.header-left h1 { font-size: 18px; font-weight: 700; color: white; }
+.header-left p { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.logo-wrap { background: white; border-radius: 8px; padding: 5px 12px; }
+.logo { height: 28px; display: block; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.2rem; }
+.stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; text-align: center; }
+.stat-num { font-size: 28px; font-weight: 700; color: var(--blue-dark); }
+.stat-lbl { font-size: 12px; font-weight: 500; color: var(--muted); margin-top: 3px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.2rem; }
+.chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; }
+.chart-card.full { grid-column: 1 / -1; }
+.chart-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
+.chart-title span { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); display: inline-block; flex-shrink:0; }
+.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.bar-label { font-size: 12px; font-weight: 500; color: var(--muted); width: 130px; flex-shrink: 0; text-align: right; }
+.bar-track { flex: 1; background: var(--bg); border-radius: 4px; height: 22px; overflow: hidden; }
+.bar-fill { height: 22px; border-radius: 4px; background: var(--blue); display: flex; align-items: center; padding-left: 8px; min-width: 44px; }
+.bar-fill span { font-size: 11px; font-weight: 700; color: white; white-space: nowrap; }
+.bar-fill.gold { background: var(--gold); }
+.bar-fill.green { background: #4caf87; }
+.bar-fill.orange { background: #e8914a; }
+.bar-fill.purple { background: #9b6fd4; }
+.bar-fill.teal { background: #3ab8b8; }
+.pie-wrap { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.pie-legend { display: flex; flex-direction: column; gap: 6px; }
+.pie-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--muted); }
+.pie-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.star-d { font-size: 22px; }
+.star-d.on { color: var(--gold); }
+.star-d.off { color: #d0e4f4; }
+.avg-num { font-size: 32px; font-weight: 700; color: var(--blue-dark); }
+.avg-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.refresh-btn { background: var(--blue); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; margin-bottom: 1.2rem; }
+.refresh-btn:hover { background: var(--blue-dark); }
+.loading { text-align: center; padding: 3rem; color: var(--muted); font-size: 15px; }
+.empty { text-align: center; padding: 1.5rem; color: var(--muted); font-size: 13px; background: var(--bg); border-radius: 8px; }
+.competitor-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.competitor-tag { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; color: var(--blue-deeper); }
+.back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--blue-dark); text-decoration: none; margin-bottom: 1rem; }
+.back-link:hover { color: var(--blue-deeper); }
+.info-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1.2rem; font-size: 13px; color: #7a6000; line-height: 1.6; }
+.info-box strong { color: #5a4000; }
+@media (max-width: 600px) {
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .chart-card.full { grid-column: 1; }
+  .bar-label { width: 90px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="file:///C:/Users/josef/Downloads/index.html">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  Torna al questionario
+</a>
+
+<div class="header">
+  <div class="header-left">
+    <h1>Dashboard — PE 2026</h1>
+    <p id="lastUpdate">Errore caricamento</p>
+  </div>
+  <div class="logo-wrap" style="display: none;">
+    <img class="logo" src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
+  </div>
+</div>
+
+<div class="info-box">
+  📊 <strong>Come funziona:</strong> clicca "Aggiorna dati" per caricare le ultime risposte dal tuo Google Sheet. I dati si aggiornano automaticamente ogni 60 secondi.
+</div>
+
+<button class="refresh-btn" onclick="loadData()">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7a6 6 0 1 0 1-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round"></path><path d="M1 2v3h3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  Aggiorna dati
+</button>
+
+<div id="content"><div class="empty" style="padding:2rem;">
+        ⚠️ Impossibile caricare i dati.<br><br>
+        Assicurati che il Google Sheet sia condiviso come <b>"Chiunque abbia il link può visualizzare"</b>.<br><br>
+        <small style="color:#aaa;">Errore: [object ProgressEvent]</small>
+      </div></div>
+
+<script>
+const SHEET_ID = '15y4A8C9Rm1J05lZzJCMDvZnz6uxQH24DHVlpPgC1f0g';
+const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+const COLORS = ['#5aade0','#f0b429','#4caf87','#e8914a','#9b6fd4','#3ab8b8','#e87070','#7ab8e8','#f47eb0','#a0d468'];
+
+function count(arr) {
+  return arr.reduce((acc, v) => { const k = v.trim(); if(k) acc[k] = (acc[k]||0)+1; return acc; }, {});
+}
+function pct(n, total) { return total > 0 ? Math.round(n/total*100) : 0; }
+
+function pieSlices(data, r) {
+  const total = Object.values(data).reduce((a,b)=>a+b,0);
+  if (!total) return '';
+  let angle = -90; let paths = '';
+  Object.entries(data).forEach(([k,v],i) => {
+    const sweep = (v/total)*360;
+    const a1 = angle*Math.PI/180, a2 = (angle+sweep)*Math.PI/180;
+    const x1=r+r*Math.cos(a1), y1=r+r*Math.sin(a1);
+    const x2=r+r*Math.cos(a2), y2=r+r*Math.sin(a2);
+    const lg = sweep>180?1:0;
+    paths += `<path d="M${r},${r} L${x1},${y1} A${r},${r} 0 ${lg},1 ${x2},${y2} Z" fill="${COLORS[i%COLORS.length]}"/>`;
+    angle += sweep;
+  });
+  return paths;
+}
+
+function renderBars(data, total, colorClass) {
+  const sorted = Object.entries(data).sort((a,b)=>b[1]-a[1]);
+  if (!sorted.length) return '<div class="empty">Nessun dato ancora</div>';
+  return sorted.map(([k,v]) => `
+    <div class="bar-row">
+      <div class="bar-label">${k}</div>
+      <div class="bar-track">
+        <div class="bar-fill ${colorClass||''}" style="width:${Math.max(pct(v,total),8)}%">
+          <span>${v} (${pct(v,total)}%)</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderPie(data) {
+  const r = 55;
+  const total = Object.values(data).reduce((a,b)=>a+b,0);
+  if (!total) return '<div class="empty">Nessun dato ancora</div>';
+  return `<div class="pie-wrap">
+    <svg width="${r*2}" height="${r*2}" viewBox="0 0 ${r*2} ${r*2}">${pieSlices(data,r)}</svg>
+    <div class="pie-legend">${Object.entries(data).map(([k,v],i)=>`
+      <div class="pie-item"><div class="pie-dot" style="background:${COLORS[i%COLORS.length]}"></div>${k}: <b>${pct(v,total)}%</b></div>`).join('')}
+    </div>
+  </div>`;
+}
+
+async function loadData() {
+  document.getElementById('lastUpdate').textContent = 'Aggiornamento...';
+  document.getElementById('content').innerHTML = '<div class="loading">⏳ Caricamento dati...</div>';
+
+  Papa.parse(CSV_URL, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+      const rows = results.data;
+      if (!rows || rows.length === 0) {
+        document.getElementById('content').innerHTML = '<div class="empty" style="padding:2rem;font-size:14px;">⚠️ Nessuna risposta ancora nel Google Sheet.<br><br>Invia il questionario ai tuoi clienti!</div>';
+        document.getElementById('lastUpdate').textContent = 'Nessun dato disponibile';
+        return;
+      }
+
+      const n = rows.length;
+      const headers = Object.keys(rows[0]);
+
+      // mappa colonne per nome
+      const col = (idx) => rows.map(r => (r[headers[idx]]||'').trim()).filter(v=>v&&v!='n/a');
+
+      const starsRaw = col(17).map(v => parseFloat(v.split('/')[0])).filter(v => !isNaN(v));
+      const avgStars = starsRaw.length ? (starsRaw.reduce((a,b)=>a+b,0)/starsRaw.length).toFixed(1) : 0;
+
+      const competitors = col(15).join(',').split(',').map(s=>s.trim()).filter(Boolean);
+      const compCount = count(competitors);
+      const topComp = Object.entries(compCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
+      const province = [...new Set(col(2))].length;
+
+      document.getElementById('lastUpdate').textContent = `Aggiornato: ${new Date().toLocaleTimeString('it-IT')} — ${n} risposte totali`;
+
+      document.getElementById('content').innerHTML = `
+        <div class="stats-row">
+          <div class="stat-card"><div class="stat-num">${n}</div><div class="stat-lbl">Risposte totali</div></div>
+          <div class="stat-card"><div class="stat-num">${avgStars}★</div><div class="stat-lbl">Valutazione media</div></div>
+          <div class="stat-card"><div class="stat-num">${province}</div><div class="stat-lbl">Province attive</div></div>
+          <div class="stat-card"><div class="stat-num">${Object.keys(compCount).length}</div><div class="stat-lbl">Competitor citati</div></div>
+        </div>
+
+        <div class="grid">
+          <div class="chart-card">
+            <div class="chart-title"><span></span>% Venduto al 30/04/2026</div>
+            ${renderBars(count(col(3)), n)}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#f0b429"></span>Province Campania</div>
+            ${renderPie(count(col(2)))}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#4caf87"></span>Confronto con PE25</div>
+            ${renderBars(count(col(4)), n, 'green')}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#e8914a"></span>Comparto</div>
+            ${renderPie(count(col(5)))}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#9b6fd4"></span>Segmento</div>
+            ${renderPie(count(col(6)))}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span></span>Corredino</div>
+            ${renderBars(count(col(7)), n)}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#9b6fd4"></span>Abbigliamento</div>
+            ${renderBars(count(col(8)), n, 'purple')}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#3ab8b8"></span>Impronta collezione</div>
+            ${renderBars(count(col(9)), n, 'teal')}
+          </div>
+          <div class="chart-card">
+            <div class="chart-title"><span style="background:#f0b429"></span>Fascia taglie</div>
+            ${renderPie(count(col(11)))}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#e87070"></span>For Every One — Andamento vendite</div>
+            ${renderBars(count(col(13)), n, 'orange')}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#e87070"></span>For Every One — Cosa apprezza la clientela</div>
+            ${renderBars(count(col(14)), n, 'orange')}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#f0b429"></span>Competitor nel punto vendita</div>
+            ${topComp.length ? `<div class="competitor-list">${topComp.map(([k,v])=>`<div class="competitor-tag">${k} (${v})</div>`).join('')}</div>` : '<div class="empty">Nessun dato ancora</div>'}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#f0b429"></span>Suggerimenti per le prossime campionature</div>
+            ${renderBars(count(col(16)), n, 'gold')}
+          </div>
+          <div class="chart-card full">
+            <div class="chart-title"><span style="background:#f0b429"></span>Valutazione complessiva PE 2026</div>
+            <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+              <div>
+                <div class="avg-num">${avgStars} / 5</div>
+                <div style="display:flex;gap:4px;margin:6px 0;">${[1,2,3,4,5].map(i=>`<span class="star-d ${i<=Math.round(avgStars)?'on':'off'}">★</span>`).join('')}</div>
+                <div class="avg-sub">Media su ${starsRaw.length} valutazioni</div>
+              </div>
+              <div style="flex:1;min-width:200px;">${renderBars(count(col(17)), starsRaw.length, 'gold')}</div>
+            </div>
+          </div>
+        </div>`;
+    },
+    error: function(err) {
+      document.getElementById('content').innerHTML = `<div class="empty" style="padding:2rem;">
+        ⚠️ Impossibile caricare i dati.<br><br>
+        Assicurati che il Google Sheet sia condiviso come <b>"Chiunque abbia il link può visualizzare"</b>.<br><br>
+        <small style="color:#aaa;">Errore: ${err.message||'CORS / accesso negato'}</small>
+      </div>`;
+      document.getElementById('lastUpdate').textContent = 'Errore caricamento';
+    }
+  });
+}
+
+loadData();
+setInterval(loadData, 60000);
+</script>
+
+
+</body></html>
