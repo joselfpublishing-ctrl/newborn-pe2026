@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)file:///C:/Users/josef/Downloads/dashboard_2.html -->
+<!-- saved from url=(0049)file:///C:/Users/josef/Downloads/dashboard_4.html -->
 <html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Mayoral Newborn PE 2026</title>
 <link href="./dashboard_files/css2" rel="stylesheet">
-<script src="./dashboard_files/papaparse.min.js.download"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
 :root {
@@ -27,7 +26,7 @@ body { background: var(--bg); padding: 1rem; min-height: 100vh; }
 .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; }
 .chart-card.full { grid-column: 1 / -1; }
 .chart-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
-.chart-title span { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); display: inline-block; flex-shrink:0; }
+.chart-title span { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); display: inline-block; flex-shrink: 0; }
 .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
 .bar-label { font-size: 12px; font-weight: 500; color: var(--muted); width: 130px; flex-shrink: 0; text-align: right; }
 .bar-track { flex: 1; background: var(--bg); border-radius: 4px; height: 22px; overflow: hidden; }
@@ -38,9 +37,9 @@ body { background: var(--bg); padding: 1rem; min-height: 100vh; }
 .bar-fill.orange { background: #e8914a; }
 .bar-fill.purple { background: #9b6fd4; }
 .bar-fill.teal { background: #3ab8b8; }
-.pie-wrap { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.pie-wrap { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
 .pie-legend { display: flex; flex-direction: column; gap: 6px; }
-.pie-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--muted); }
+.pie-item { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--text); }
 .pie-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .star-d { font-size: 22px; }
 .star-d.on { color: var(--gold); }
@@ -55,8 +54,6 @@ body { background: var(--bg); padding: 1rem; min-height: 100vh; }
 .competitor-tag { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; color: var(--blue-deeper); }
 .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--blue-dark); text-decoration: none; margin-bottom: 1rem; }
 .back-link:hover { color: var(--blue-deeper); }
-.info-box { background: #fff8e1; border: 1px solid #ffe082; border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1.2rem; font-size: 13px; color: #7a6000; line-height: 1.6; }
-.info-box strong { color: #5a4000; }
 @media (max-width: 600px) {
   .stats-row { grid-template-columns: 1fr 1fr; }
   .grid { grid-template-columns: 1fr; }
@@ -75,15 +72,11 @@ body { background: var(--bg); padding: 1rem; min-height: 100vh; }
 <div class="header">
   <div class="header-left">
     <h1>Dashboard — PE 2026</h1>
-    <p id="lastUpdate">Errore caricamento</p>
+    <p id="lastUpdate">Aggiornato: 22:05:44 — 2 risposte totali</p>
   </div>
   <div class="logo-wrap" style="display: none;">
     <img class="logo" src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
   </div>
-</div>
-
-<div class="info-box">
-  📊 <strong>Come funziona:</strong> clicca "Aggiorna dati" per caricare le ultime risposte dal tuo Google Sheet. I dati si aggiornano automaticamente ogni 60 secondi.
 </div>
 
 <button class="refresh-btn" onclick="loadData()">
@@ -91,33 +84,187 @@ body { background: var(--bg); padding: 1rem; min-height: 100vh; }
   Aggiorna dati
 </button>
 
-<div id="content"><div class="empty" style="padding:2rem;">
-        ⚠️ Impossibile caricare i dati.<br><br>
-        Assicurati che il Google Sheet sia condiviso come <b>"Chiunque abbia il link può visualizzare"</b>.<br><br>
-        <small style="color:#aaa;">Errore: [object ProgressEvent]</small>
+<div id="content">
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num">2</div><div class="stat-lbl">Risposte totali</div></div>
+        <div class="stat-card"><div class="stat-num">5.0★</div><div class="stat-lbl">Valutazione media</div></div>
+        <div class="stat-card"><div class="stat-num">1</div><div class="stat-lbl">Province attive</div></div>
+        <div class="stat-card"><div class="stat-num">1</div><div class="stat-lbl">Competitor citati</div></div>
+      </div>
+      <div class="grid">
+        <div class="chart-card">
+          <div class="chart-title"><span></span>% Venduto al 30/04/2026</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>20 – 40%: <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>0 – 20%: <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#f0b429"></span>Province Campania</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Napoli: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#4caf87"></span>Confronto con PE25</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>In leggera crescita (+5% / +20%): <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>In forte crescita (oltre +20%): <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#e8914a"></span>Comparto</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Femmina: <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>Unisex / neonato: <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#9b6fd4"></span>Segmento</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Abbigliamento: <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>Tutto equilibrato: <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span></span>Corredino</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Tutine e coordinati in cotone: <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>Tutine e coordinati in tricot: <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#9b6fd4"></span>Abbigliamento</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Tutto equilibrato: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#3ab8b8"></span>Impronta collezione</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Più casual e giornaliera: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#f0b429"></span>Fascia taglie</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>12 – 18 mesi: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#e87070"></span>For Every One — Andamento vendite</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Molto bene, supera le aspettative: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#e87070"></span>For Every One — Cosa apprezza la clientela</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><path d="M65,65 L65,0 A65,65 0 0,1 65,130 Z" fill="#5aade0"></path><path d="M65,65 L65,130 A65,65 0 0,1 64.99999999999999,0 Z" fill="#f0b429"></path></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Il concept inclusivo / unisex: <b>50%</b></div>
+      <div class="pie-item"><div class="pie-dot" style="background:#f0b429"></div>I colori e la grafica: <b>50%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Competitor nel punto vendita</div>
+          <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+              <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Ido: <b>100%</b></div>
+    </div>
+  </div>
+              <div style="flex:1;min-width:180px;">
+                
+                  <div class="bar-row">
+                    <div class="bar-label">Ido</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;background:#5aade0">
+                      <span>2 (100%)</span>
+                    </div></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Suggerimenti per le prossime campionature</div>
+          <div class="pie-wrap">
+    <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="65" fill="#5aade0"></circle></svg>
+    <div class="pie-legend">
+      <div class="pie-item"><div class="pie-dot" style="background:#5aade0"></div>Materiali più sostenibili / bio: <b>100%</b></div>
+    </div>
+  </div>
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Valutazione complessiva PE 2026</div>
+          <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div class="avg-num">5.0 / 5</div>
+              <div style="display:flex;gap:4px;margin:6px 0;justify-content:center;"><span class="star-d on">★</span><span class="star-d on">★</span><span class="star-d on">★</span><span class="star-d on">★</span><span class="star-d on">★</span></div>
+              <div class="avg-sub">Media su 1 valutazioni</div>
+            </div>
+            <div style="flex:1;min-width:220px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;"><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span></div><div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;"><div style="height:22px;border-radius:4px;background:#f0b429;width:100%;display:flex;align-items:center;padding-left:6px;min-width:44px;"><span style="font-size:11px;font-weight:700;color:white;white-space:nowrap;">1 (100%)</span></div></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;"><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#d0e4f4">★</span></div><div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;"><div style="height:22px;border-radius:4px;background:#f0b429;width:0%;display:flex;align-items:center;padding-left:6px;min-width:0px;"></div></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;"><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span></div><div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;"><div style="height:22px;border-radius:4px;background:#f0b429;width:0%;display:flex;align-items:center;padding-left:6px;min-width:0px;"></div></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;"><span style="color:#f0b429">★</span><span style="color:#f0b429">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span></div><div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;"><div style="height:22px;border-radius:4px;background:#f0b429;width:0%;display:flex;align-items:center;padding-left:6px;min-width:0px;"></div></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;"><span style="color:#f0b429">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span><span style="color:#d0e4f4">★</span></div><div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;"><div style="height:22px;border-radius:4px;background:#f0b429;width:0%;display:flex;align-items:center;padding-left:6px;min-width:0px;"></div></div></div>
+            </div>
+          </div>
+        </div>
       </div></div>
 
 <script>
-const SHEET_ID = '15y4A8C9Rm1J05lZzJCMDvZnz6uxQH24DHVlpPgC1f0g';
-const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcPn99XJaDflXIBNdtsq-JZSiqxLVPxkc4Y9lCy4XHMp3liUX4_JN_frpnWbMMWg-E/exec";
 const COLORS = ['#5aade0','#f0b429','#4caf87','#e8914a','#9b6fd4','#3ab8b8','#e87070','#7ab8e8','#f47eb0','#a0d468'];
 
 function count(arr) {
-  return arr.reduce((acc, v) => { const k = v.trim(); if(k) acc[k] = (acc[k]||0)+1; return acc; }, {});
+  return arr.reduce((acc, v) => { const k = String(v||'').trim(); if(k) acc[k] = (acc[k]||0)+1; return acc; }, {});
 }
 function pct(n, total) { return total > 0 ? Math.round(n/total*100) : 0; }
 
 function pieSlices(data, r) {
   const total = Object.values(data).reduce((a,b)=>a+b,0);
   if (!total) return '';
+  const entries = Object.entries(data);
+  // Se c'è un solo valore, disegna un cerchio pieno
+  if (entries.length === 1) {
+    return `<circle cx="${r}" cy="${r}" r="${r}" fill="${COLORS[0]}"/>`;
+  }
   let angle = -90; let paths = '';
-  Object.entries(data).forEach(([k,v],i) => {
+  entries.forEach(([k,v],i) => {
     const sweep = (v/total)*360;
     const a1 = angle*Math.PI/180, a2 = (angle+sweep)*Math.PI/180;
     const x1=r+r*Math.cos(a1), y1=r+r*Math.sin(a1);
     const x2=r+r*Math.cos(a2), y2=r+r*Math.sin(a2);
-    const lg = sweep>180?1:0;
-    paths += `<path d="M${r},${r} L${x1},${y1} A${r},${r} 0 ${lg},1 ${x2},${y2} Z" fill="${COLORS[i%COLORS.length]}"/>`;
+    paths += `<path d="M${r},${r} L${x1},${y1} A${r},${r} 0 ${sweep>180?1:0},1 ${x2},${y2} Z" fill="${COLORS[i%COLORS.length]}"/>`;
     angle += sweep;
   });
   return paths;
@@ -138,7 +285,7 @@ function renderBars(data, total, colorClass) {
 }
 
 function renderPie(data) {
-  const r = 55;
+  const r = 65;
   const total = Object.values(data).reduce((a,b)=>a+b,0);
   if (!total) return '<div class="empty">Nessun dato ancora</div>';
   return `<div class="pie-wrap">
@@ -149,121 +296,163 @@ function renderPie(data) {
   </div>`;
 }
 
+function getCol(rows, header) {
+  return rows.map(r => String(r[header]||'').trim()).filter(v => v && v !== 'n/a');
+}
+
 async function loadData() {
   document.getElementById('lastUpdate').textContent = 'Aggiornamento...';
   document.getElementById('content').innerHTML = '<div class="loading">⏳ Caricamento dati...</div>';
+  try {
+    const res = await fetch(SCRIPT_URL + '?t=' + Date.now());
+    const json = await res.json();
 
-  Papa.parse(CSV_URL, {
-    download: true,
-    header: true,
-    skipEmptyLines: true,
-    complete: function(results) {
-      const rows = results.data;
-      if (!rows || rows.length === 0) {
-        document.getElementById('content').innerHTML = '<div class="empty" style="padding:2rem;font-size:14px;">⚠️ Nessuna risposta ancora nel Google Sheet.<br><br>Invia il questionario ai tuoi clienti!</div>';
-        document.getElementById('lastUpdate').textContent = 'Nessun dato disponibile';
-        return;
-      }
+    if (!json.data || json.data.length === 0) {
+      document.getElementById('content').innerHTML = '<div class="empty" style="padding:2rem;font-size:14px;">⚠️ Nessuna risposta ancora.<br><br>Invia il questionario ai tuoi clienti!</div>';
+      document.getElementById('lastUpdate').textContent = 'Nessun dato disponibile';
+      return;
+    }
 
-      const n = rows.length;
-      const headers = Object.keys(rows[0]);
+    const rows = json.data;
+    const n = rows.length;
 
-      // mappa colonne per nome
-      const col = (idx) => rows.map(r => (r[headers[idx]]||'').trim()).filter(v=>v&&v!='n/a');
+    const H = {
+      provincia:    "02 - Provincia",
+      venduto:      "03 - % Venduto al 30/04/2026",
+      pe25:         "04 - Confronto PE25",
+      comparto:     "05 - Comparto",
+      segmento:     "06 - Segmento",
+      corredino:    "07 - Corredino",
+      abbigliamento:"08 - Abbigliamento",
+      impronta:     "09 - Impronta collezione",
+      primaverili:  "10 - Capi primaverili",
+      taglie:       "11 - Fascia taglie",
+      t24:          "12 - Taglia 24 mesi",
+      feo_vendite:  "13 - For Every One vendite",
+      feo_apprezza: "14 - For Every One apprezza",
+      competitor:   "15 - Competitor",
+      suggerimenti: "16 - Suggerimenti",
+      stelle:       "17 - Valutazione stelle"
+    };
 
-      const starsRaw = col(17).map(v => parseFloat(v.split('/')[0])).filter(v => !isNaN(v));
-      const avgStars = starsRaw.length ? (starsRaw.reduce((a,b)=>a+b,0)/starsRaw.length).toFixed(1) : 0;
+    const starsRaw = getCol(rows, H.stelle).filter(v => String(v).match(/^\d+/)).map(v => {
+      const match = String(v).match(/^(\d+)/);
+      return match ? parseFloat(match[1]) : NaN;
+    }).filter(v => !isNaN(v) && v >= 1 && v <= 5);
+    const avgStars = starsRaw.length ? (starsRaw.reduce((a,b)=>a+b,0)/starsRaw.length).toFixed(1) : 0;
+    const competitors = getCol(rows, H.competitor).join(",").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
+    const compCountRaw = count(competitors); const compCount = Object.fromEntries(Object.entries(compCountRaw).map(([k,v]) => [k.charAt(0).toUpperCase()+k.slice(1), v]));
+    const topComp = Object.entries(compCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    const province = [...new Set(getCol(rows, H.provincia))].length;
 
-      const competitors = col(15).join(',').split(',').map(s=>s.trim()).filter(Boolean);
-      const compCount = count(competitors);
-      const topComp = Object.entries(compCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
-      const province = [...new Set(col(2))].length;
+    document.getElementById('lastUpdate').textContent = `Aggiornato: ${new Date().toLocaleTimeString('it-IT')} — ${n} risposte totali`;
 
-      document.getElementById('lastUpdate').textContent = `Aggiornato: ${new Date().toLocaleTimeString('it-IT')} — ${n} risposte totali`;
-
-      document.getElementById('content').innerHTML = `
-        <div class="stats-row">
-          <div class="stat-card"><div class="stat-num">${n}</div><div class="stat-lbl">Risposte totali</div></div>
-          <div class="stat-card"><div class="stat-num">${avgStars}★</div><div class="stat-lbl">Valutazione media</div></div>
-          <div class="stat-card"><div class="stat-num">${province}</div><div class="stat-lbl">Province attive</div></div>
-          <div class="stat-card"><div class="stat-num">${Object.keys(compCount).length}</div><div class="stat-lbl">Competitor citati</div></div>
+    document.getElementById('content').innerHTML = `
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num">${n}</div><div class="stat-lbl">Risposte totali</div></div>
+        <div class="stat-card"><div class="stat-num">${avgStars}★</div><div class="stat-lbl">Valutazione media</div></div>
+        <div class="stat-card"><div class="stat-num">${province}</div><div class="stat-lbl">Province attive</div></div>
+        <div class="stat-card"><div class="stat-num">${Object.keys(compCount).length}</div><div class="stat-lbl">Competitor citati</div></div>
+      </div>
+      <div class="grid">
+        <div class="chart-card">
+          <div class="chart-title"><span></span>% Venduto al 30/04/2026</div>
+          ${renderPie(count(getCol(rows,H.venduto)))}
         </div>
-
-        <div class="grid">
-          <div class="chart-card">
-            <div class="chart-title"><span></span>% Venduto al 30/04/2026</div>
-            ${renderBars(count(col(3)), n)}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#f0b429"></span>Province Campania</div>
-            ${renderPie(count(col(2)))}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#4caf87"></span>Confronto con PE25</div>
-            ${renderBars(count(col(4)), n, 'green')}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#e8914a"></span>Comparto</div>
-            ${renderPie(count(col(5)))}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#9b6fd4"></span>Segmento</div>
-            ${renderPie(count(col(6)))}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span></span>Corredino</div>
-            ${renderBars(count(col(7)), n)}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#9b6fd4"></span>Abbigliamento</div>
-            ${renderBars(count(col(8)), n, 'purple')}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#3ab8b8"></span>Impronta collezione</div>
-            ${renderBars(count(col(9)), n, 'teal')}
-          </div>
-          <div class="chart-card">
-            <div class="chart-title"><span style="background:#f0b429"></span>Fascia taglie</div>
-            ${renderPie(count(col(11)))}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#e87070"></span>For Every One — Andamento vendite</div>
-            ${renderBars(count(col(13)), n, 'orange')}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#e87070"></span>For Every One — Cosa apprezza la clientela</div>
-            ${renderBars(count(col(14)), n, 'orange')}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#f0b429"></span>Competitor nel punto vendita</div>
-            ${topComp.length ? `<div class="competitor-list">${topComp.map(([k,v])=>`<div class="competitor-tag">${k} (${v})</div>`).join('')}</div>` : '<div class="empty">Nessun dato ancora</div>'}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#f0b429"></span>Suggerimenti per le prossime campionature</div>
-            ${renderBars(count(col(16)), n, 'gold')}
-          </div>
-          <div class="chart-card full">
-            <div class="chart-title"><span style="background:#f0b429"></span>Valutazione complessiva PE 2026</div>
-            <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
-              <div>
-                <div class="avg-num">${avgStars} / 5</div>
-                <div style="display:flex;gap:4px;margin:6px 0;">${[1,2,3,4,5].map(i=>`<span class="star-d ${i<=Math.round(avgStars)?'on':'off'}">★</span>`).join('')}</div>
-                <div class="avg-sub">Media su ${starsRaw.length} valutazioni</div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#f0b429"></span>Province Campania</div>
+          ${renderPie(count(getCol(rows,H.provincia)))}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#4caf87"></span>Confronto con PE25</div>
+          ${renderPie(count(getCol(rows,H.pe25)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#e8914a"></span>Comparto</div>
+          ${renderPie(count(getCol(rows,H.comparto)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#9b6fd4"></span>Segmento</div>
+          ${renderPie(count(getCol(rows,H.segmento)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span></span>Corredino</div>
+          ${renderPie(count(getCol(rows,H.corredino)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#9b6fd4"></span>Abbigliamento</div>
+          ${renderPie(count(getCol(rows,H.abbigliamento)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#3ab8b8"></span>Impronta collezione</div>
+          ${renderPie(count(getCol(rows,H.impronta)))}
+        </div>
+        <div class="chart-card">
+          <div class="chart-title"><span style="background:#f0b429"></span>Fascia taglie</div>
+          ${renderPie(count(getCol(rows,H.taglie)))}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#e87070"></span>For Every One — Andamento vendite</div>
+          ${renderPie(count(getCol(rows,H.feo_vendite)))}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#e87070"></span>For Every One — Cosa apprezza la clientela</div>
+          ${renderPie(count(getCol(rows,H.feo_apprezza)))}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Competitor nel punto vendita</div>
+          ${topComp.length ? (() => {
+            const cd = Object.fromEntries(topComp);
+            const ct = Object.values(cd).reduce((a,b)=>a+b,0);
+            return `<div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+              ${renderPie(cd)}
+              <div style="flex:1;min-width:180px;">
+                ${topComp.map(([k,v],i)=>`
+                  <div class="bar-row">
+                    <div class="bar-label">${k}</div>
+                    <div class="bar-track"><div class="bar-fill" style="width:${Math.max(Math.round(v/ct*100),8)}%;background:${COLORS[i%COLORS.length]}">
+                      <span>${v} (${Math.round(v/ct*100)}%)</span>
+                    </div></div>
+                  </div>`).join('')}
               </div>
-              <div style="flex:1;min-width:200px;">${renderBars(count(col(17)), starsRaw.length, 'gold')}</div>
+            </div>`;
+          })() : '<div class="empty">Nessun dato ancora</div>'}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Suggerimenti per le prossime campionature</div>
+          ${renderPie(count(getCol(rows,H.suggerimenti)))}
+        </div>
+        <div class="chart-card full">
+          <div class="chart-title"><span style="background:#f0b429"></span>Valutazione complessiva PE 2026</div>
+          <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div class="avg-num">${avgStars} / 5</div>
+              <div style="display:flex;gap:4px;margin:6px 0;justify-content:center;">${[1,2,3,4,5].map(i=>`<span class="star-d ${i<=Math.round(avgStars)?'on':'off'}">★</span>`).join('')}</div>
+              <div class="avg-sub">Media su ${starsRaw.length} valutazioni</div>
+            </div>
+            <div style="flex:1;min-width:220px;">
+              ${[5,4,3,2,1].map(star => {
+                const sf = getCol(rows,H.stelle).filter(v=>String(v).match(/^\d+\//));
+                const sc = sf.filter(v=>parseInt(v)===star).length;
+                const sp = starsRaw.length ? Math.round(sc/starsRaw.length*100) : 0;
+                return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">' +
+                  '<div style="font-size:18px;letter-spacing:2px;width:100px;flex-shrink:0;">' +
+                  Array(star).fill('<span style=\'color:#f0b429\'>★</span>').join('') +
+                  Array(5-star).fill('<span style=\'color:#d0e4f4\'>★</span>').join('') +
+                  '</div>' +
+                  '<div style="flex:1;background:#f0f6fc;border-radius:4px;height:22px;overflow:hidden;">' +
+                  '<div style="height:22px;border-radius:4px;background:#f0b429;width:'+Math.max(sp,0)+'%;display:flex;align-items:center;padding-left:6px;min-width:'+(sp>0?44:0)+'px;">' +
+                  (sp>0?'<span style="font-size:11px;font-weight:700;color:white;white-space:nowrap;">'+sc+' ('+sp+'%)</span>':'') +
+                  '</div></div></div>';
+              }).join('')}
             </div>
           </div>
-        </div>`;
-    },
-    error: function(err) {
-      document.getElementById('content').innerHTML = `<div class="empty" style="padding:2rem;">
-        ⚠️ Impossibile caricare i dati.<br><br>
-        Assicurati che il Google Sheet sia condiviso come <b>"Chiunque abbia il link può visualizzare"</b>.<br><br>
-        <small style="color:#aaa;">Errore: ${err.message||'CORS / accesso negato'}</small>
+        </div>
       </div>`;
-      document.getElementById('lastUpdate').textContent = 'Errore caricamento';
-    }
-  });
+  } catch(e) {
+    document.getElementById('content').innerHTML = `<div class="empty" style="padding:2rem;">⚠️ Errore nel caricamento.<br><br><small style="color:#aaa;">${e.message}</small></div>`;
+    document.getElementById('lastUpdate').textContent = 'Errore caricamento';
+  }
 }
 
 loadData();
