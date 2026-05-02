@@ -1,737 +1,460 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///C:/Users/josef/Downloads/newborn_pe2026.html -->
+<!-- saved from url=(0054)file:///C:/Users/josef/Downloads/newborn_pe2026_2.html -->
 <html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mayoral Newborn — Sell-out &amp; Feedback PE 2026</title>
 <link href="./index_files/css2" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+:root {
+  --blue: #4a9fd4; --blue-dark: #2e7db8; --blue-deeper: #1a5f8a;
+  --blue-hover: rgba(255,255,255,0.25);
+  --bg: #5aade0; --card: rgba(255,255,255,0.18);
+  --border: rgba(255,255,255,0.3); --border2: rgba(255,255,255,0.5);
+  --muted: rgba(255,255,255,0.75); --gold: #f9d030;
+}
+body { background: var(--bg); min-height: 100vh; }
+.wrap { background: var(--bg); min-height: 100vh; }
+.prog-bar { height: 4px; background: rgba(255,255,255,0.25); }
+.prog-fill { height: 4px; background: white; transition: width 0.4s cubic-bezier(.4,0,.2,1); }
+.top { background: rgba(255,255,255,0.12); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.logo-wrap { background: white; border-radius: 8px; padding: 5px 12px; display: inline-flex; }
+.logo { height: 28px; display: block; }
+.step-count { font-size: 14px; font-weight: 600; color: var(--muted); }
 
-  :root {
-    --bg:      #0f2740;
-    --bg2:     #0a1e33;
-    --card:    #162f4a;
-    --card2:   #0e2338;
-    --border:  rgba(120,180,230,0.18);
-    --border2: rgba(120,180,230,0.35);
-    --accent:  #4fa8e0;
-    --accent2: #2478cc;
-    --text:    #ddeeff;
-    --muted:   #6b9ec4;
-    --gold:    #f0b429;
-  }
+.welcome { padding: 3rem 1.5rem 2rem; max-width: 600px; margin: 0 auto; text-align: center; }
+.welcome-logo { background: white; border-radius: 14px; padding: 14px 28px; display: inline-flex; margin-bottom: 2rem; }
+.welcome-logo img { height: 48px; display: block; }
+.welcome-tag { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 0.7rem; }
+.welcome h1 { font-size: 28px; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 1rem; }
+.welcome-desc { font-size: 15px; font-weight: 400; color: var(--muted); line-height: 1.75; margin-bottom: 0.8rem; }
+.welcome-date { display: inline-block; font-size: 14px; font-weight: 600; color: white; background: rgba(255,255,255,0.2); border: 0.5px solid rgba(255,255,255,0.4); padding: 6px 18px; border-radius: 20px; margin-bottom: 2rem; }
+.welcome-info { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; }
+.welcome-info-item { text-align: center; }
+.welcome-info-num { font-size: 26px; font-weight: 700; color: white; }
+.welcome-info-lbl { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.welcome-divider { height: 0.5px; background: var(--border); margin-bottom: 2rem; }
+.btn-start { background: white; color: var(--blue-deeper); border: none; padding: 15px 48px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 10px; }
+.btn-start:hover { background: rgba(255,255,255,0.92); transform: translateY(-1px); }
+.btn-start svg { width: 18px; height: 18px; }
+.gdpr { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.45); margin-top: 1.2rem; }
 
-  html { scroll-behavior: smooth; }
+.step { display: none; padding: 2.5rem 1.5rem 1.5rem; max-width: 600px; margin: 0 auto; animation: fadeUp 0.25s ease; }
+.step.active { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.step-num { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.step-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: white; background: rgba(255,255,255,0.2); border: 0.5px solid rgba(255,255,255,0.4); padding: 4px 12px; border-radius: 20px; margin-bottom: 0.6rem; }
+.step-q { font-size: 22px; font-weight: 700; color: white; line-height: 1.4; margin-bottom: 1.8rem; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opts.two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.opts.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.opt { display: flex; align-items: center; gap: 12px; padding: 13px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--muted); text-align: left; transition: all 0.15s; line-height: 1.4; }
+.opt:hover { background: var(--blue-hover); color: white; border-color: var(--border2); }
+.opt.sel { background: white; color: var(--blue-deeper); border-color: white; }
+.opt.sel .opt-rich-title { color: var(--blue-deeper); }
+.opt.sel .opt-rich-sub { color: var(--blue); }
+.radio { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.opt.sel .radio { border-color: var(--blue); background: var(--blue); }
+.opt.sel .radio::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; }
+.opt-rich { align-items: flex-start; }
+.opt-rich .radio { margin-top: 2px; }
+.opt-rich-title { font-size: 15px; font-weight: 600; color: white; }
+.opt-rich-sub { font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 10px 22px; background: var(--card); border: 1px solid var(--border); border-radius: 30px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--muted); transition: all 0.15s; }
+.chip:hover { background: var(--blue-hover); color: white; border-color: var(--border2); }
+.chip.sel { background: white; color: var(--blue-deeper); border-color: white; font-weight: 700; }
+.tinput { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 15px; font-weight: 500; color: white; outline: none; transition: all 0.15s; }
+.tinput::placeholder { color: rgba(255,255,255,0.4); font-weight: 400; }
+.tinput:focus { background: var(--blue-hover); border-color: white; }
+.stars { display: flex; gap: 8px; margin-bottom: 10px; }
+.star { font-size: 38px; color: rgba(255,255,255,0.3); background: none; border: none; cursor: pointer; padding: 2px 4px; line-height: 1; transition: all 0.15s; }
+.star:hover { transform: scale(1.2); }
+.star.on { color: var(--gold); }
+.star-lbl { font-size: 15px; font-weight: 500; color: var(--muted); }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.btn-back { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 11px 22px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.btn-back:hover { border-color: white; color: white; }
+.btn-next { background: white; color: var(--blue-deeper); border: none; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 8px; }
+.btn-next:hover { background: rgba(255,255,255,0.9); }
+.btn-next:disabled { background: rgba(255,255,255,0.25); color: rgba(255,255,255,0.5); cursor: not-allowed; }
+.btn-next svg { width: 16px; height: 16px; }
+.success-screen { display: none; text-align: center; padding: 4rem 2rem; max-width: 500px; margin: 0 auto; }
+.success-circle { width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid white; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+.success-circle svg { width: 32px; height: 32px; }
+.success-tag { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
+.success-name { font-size: 26px; font-weight: 700; color: white; margin-bottom: 0.6rem; }
+.success-sub { font-size: 15px; font-weight: 400; color: var(--muted); line-height: 1.8; }
+.success-div { height: 0.5px; background: var(--border); margin: 1.5rem 0 1rem; }
+.success-brand { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    padding-bottom: 4rem;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 3rem 1.5rem 2.5rem;
-    text-align: center;
-  }
-  .logo-wrap {
-    display: inline-block;
-    background: #fff;
-    border-radius: 12px;
-    padding: 10px 22px;
-    margin-bottom: 1.6rem;
-  }
-  .logo-wrap img { height: 44px; display: block; }
-  .season-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 0.5px solid var(--border2);
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 5vw, 32px);
-    font-weight: 400;
-    color: var(--text);
-    letter-spacing: 0.01em;
-    margin-bottom: 0.5rem;
-  }
-  .hero p {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PROGRESS ── */
-  .prog-wrap {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 1.4rem 1.5rem 0;
-  }
-  .prog-track {
-    background: rgba(255,255,255,0.08);
-    height: 3px;
-    border-radius: 2px;
-  }
-  .prog-fill {
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    height: 3px;
-    border-radius: 2px;
-    width: 0%;
-    transition: width 0.4s cubic-bezier(.4,0,.2,1);
-  }
-  .prog-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-align: right;
-    margin-top: 6px;
-    letter-spacing: 0.06em;
-  }
-
-  /* ── LAYOUT ── */
-  .form-body {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  /* ── SECTION DIVIDER ── */
-  .sec {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 2.2rem 0 1.1rem;
-  }
-  .sec::before, .sec::after {
-    content: '';
-    flex: 1;
-    height: 0.5px;
-    background: var(--border);
-  }
-  .sec span {
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  /* ── CARD ── */
-  .qcard {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem 1.6rem;
-    margin-bottom: 1rem;
-    transition: border-color 0.25s;
-  }
-  .qcard.done { border-color: var(--accent); }
-  .qnum {
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.45rem;
-  }
-  .qtext {
-    font-family: 'DM Serif Display', serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.55;
-    margin-bottom: 1.2rem;
-  }
-  .req { color: var(--accent); margin-left: 3px; font-family: 'DM Sans', sans-serif; font-size: 14px; }
-
-  /* ── BADGE ── */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(79,168,224,0.12);
-    border: 0.5px solid rgba(79,168,224,0.35);
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 0.7rem;
-  }
-
-  /* ── OPTIONS ── */
-  .opts { display: flex; flex-direction: column; gap: 7px; }
-  .opts.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-  .opts.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
-
-  .opt {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    padding: 11px 15px;
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    text-align: left;
-    transition: all 0.15s;
-    line-height: 1.4;
-  }
-  .opt:hover { border-color: var(--accent); color: var(--text); background: rgba(79,168,224,0.07); }
-  .opt.sel { border-color: var(--accent); background: rgba(79,168,224,0.16); color: var(--text); }
-
-  .radio {
-    width: 16px; height: 16px;
-    border-radius: 50%;
-    border: 1.5px solid var(--muted);
-    flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s;
-  }
-  .opt.sel .radio { border-color: var(--accent); background: var(--accent); }
-  .opt.sel .radio::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #fff; }
-
-  .opt-rich { align-items: flex-start; padding: 14px 15px; }
-  .opt-rich .radio { margin-top: 2px; }
-  .opt-rich-inner { display: flex; flex-direction: column; gap: 2px; }
-  .opt-rich-title { font-size: 13px; font-weight: 500; color: var(--text); }
-  .opt-rich-sub { font-size: 11px; color: var(--muted); }
-  .opt.sel .opt-rich-title { color: var(--text); }
-
-  /* ── CHIPS ── */
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    padding: 9px 20px;
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    transition: all 0.15s;
-  }
-  .chip:hover { border-color: var(--accent); color: var(--text); }
-  .chip.sel { border-color: var(--accent); background: rgba(79,168,224,0.16); color: var(--text); }
-
-  /* ── TEXT INPUT ── */
-  .tinput {
-    width: 100%;
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 13px 16px;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.15s;
-  }
-  .tinput::placeholder { color: var(--muted); opacity: 0.7; }
-  .tinput:focus { border-color: var(--accent); }
-  .input-hint { font-size: 11px; color: var(--muted); margin-top: 7px; letter-spacing: 0.02em; }
-
-  /* ── STARS ── */
-  .stars { display: flex; gap: 4px; margin-bottom: 8px; }
-  .star {
-    font-size: 30px;
-    color: rgba(255,255,255,0.1);
-    background: none; border: none;
-    cursor: pointer; padding: 2px 5px; line-height: 1;
-    transition: color 0.15s, transform 0.1s;
-  }
-  .star:hover { transform: scale(1.15); }
-  .star.on { color: var(--gold); }
-  .star-lbl { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
-
-  /* ── SUBMIT ── */
-  .footer {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 0;
-    text-align: center;
-  }
-  .submit-btn {
-    background: var(--accent2);
-    color: #fff;
-    border: none;
-    padding: 15px 56px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-  }
-  .submit-btn:hover:not(:disabled) { background: #1a6ab8; transform: translateY(-1px); }
-  .submit-btn:active:not(:disabled) { transform: translateY(0); }
-  .submit-btn:disabled { background: rgba(79,168,224,0.2); color: var(--muted); cursor: not-allowed; }
-  .date-tag { display: inline-block; font-size: 11px; letter-spacing: 0.1em; color: var(--accent); background: rgba(79,168,224,0.12); border: 0.5px solid rgba(79,168,224,0.35); padding: 4px 14px; border-radius: 20px; margin-top: 0.8rem; }
-  .gdpr { font-size: 11px; color: var(--muted); margin-top: 1rem; letter-spacing: 0.02em; }
-
-  /* ── SUCCESS ── */
-  #successScreen {
-    display: none;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  .success-circle {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    background: rgba(79,168,224,0.15);
-    border: 1.5px solid var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.8rem;
-  }
-  .success-circle svg { width: 30px; height: 30px; }
-  .success-tag {
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 0.8rem;
-  }
-  #thankName {
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px; font-weight: 400;
-    color: var(--text); margin-bottom: 0.8rem;
-  }
-  .success-sub { font-size: 13px; color: var(--muted); line-height: 1.8; }
-  .success-divider { height: 0.5px; background: var(--border); margin: 2rem 0 1.2rem; }
-  .success-brand { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-
-  @media (max-width: 480px) {
-    .opts.g2 { grid-template-columns: 1fr; }
-    .opts.g3 { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 20px; }
-  }
+@media (max-width: 480px) {
+  .opts.two { grid-template-columns: 1fr; }
+  .opts.three { grid-template-columns: 1fr 1fr; }
+  .welcome h1 { font-size: 22px; }
+  .step-q { font-size: 19px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════ FORM ═══════════════════════════════ -->
-<div id="mainScreen">
-
-  <div class="hero">
+<div class="wrap" id="mainWrap">
+  <div class="prog-bar"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+  <div class="top">
     <div class="logo-wrap" style="display: none;">
-      <img src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
+      <img class="logo" src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
     </div>
-    <div class="season-tag">Primavera / Estate 2026 — Mid Season</div>
+    <span class="step-count" id="stepCount"></span>
+  </div>
+
+  <!-- WELCOME -->
+  <div class="welcome" id="welcomeScreen">
+    <div class="welcome-logo" style="display: none;">
+      <img src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" style="height:48px;" onerror="this.parentElement.style.display=&#39;none&#39;">
+    </div>
+    <div class="welcome-tag">Primavera / Estate 2026 — Mid Season</div>
     <h1>Sell-out &amp; Feedback<br>Collezione PE 2026</h1>
-    <p>Raccolta dati di vendita e valutazione collezione</p>
-    <div class="date-tag">Rilevazione al 30 aprile 2026</div>
-  </div>
-
-  <div class="prog-wrap">
-    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
-    <div class="prog-label" id="progLabel">0 / 16 domande completate</div>
-  </div>
-
-  <form id="mainForm">
-    <!-- campi nascosti popolati via JS -->
-    <input type="hidden" name="01_nome_cliente" id="f0">
-    <input type="hidden" name="02_provincia" id="f1">
-    <input type="hidden" name="03_percentuale_venduto" id="f2">
-    <input type="hidden" name="04_confronto_pe25" id="f3">
-    <input type="hidden" name="05_comparto" id="f4">
-    <input type="hidden" name="06_segmento" id="f5">
-    <input type="hidden" name="07_corredino" id="f6">
-    <input type="hidden" name="08_abbigliamento" id="f7">
-    <input type="hidden" name="09_impronta_collezione" id="f8">
-    <input type="hidden" name="10_capi_primaverili" id="f9">
-    <input type="hidden" name="11_fascia_taglie" id="f10">
-    <input type="hidden" name="12_taglia_24mesi" id="f11">
-    <input type="hidden" name="13_foreveryone_vendite" id="f12">
-    <input type="hidden" name="14_foreveryone_apprezza" id="f13">
-    <input type="hidden" name="15_competitor" id="f14">
-    <input type="hidden" name="16_suggerimenti" id="f15">
-    <input type="hidden" name="17_valutazione_stelle" id="f16">
-
-    <div class="form-body">
-
-      <!-- SEZIONE: DATI PUNTO VENDITA -->
-      <div class="sec"><span>Dati punto vendita</span></div>
-
-      <div class="qcard" id="c0">
-        <div class="qnum">01</div>
-        <div class="qtext">Nome del cliente<span class="req">*</span></div>
-        <input class="tinput" id="nameInput" type="text" placeholder="Inserisci il nome del punto vendita..." oninput="onText(this,&#39;f0&#39;,0)">
-      </div>
-
-      <div class="qcard" id="c1">
-        <div class="qnum">02</div>
-        <div class="qtext">Provincia<span class="req">*</span></div>
-        <div class="chips" id="chips1">
-          <button type="button" class="chip" onclick="pickChip(this,&#39;chips1&#39;,&#39;f1&#39;,1)">Napoli</button>
-          <button type="button" class="chip" onclick="pickChip(this,&#39;chips1&#39;,&#39;f1&#39;,1)">Salerno</button>
-          <button type="button" class="chip" onclick="pickChip(this,&#39;chips1&#39;,&#39;f1&#39;,1)">Caserta</button>
-          <button type="button" class="chip" onclick="pickChip(this,&#39;chips1&#39;,&#39;f1&#39;,1)">Avellino</button>
-          <button type="button" class="chip" onclick="pickChip(this,&#39;chips1&#39;,&#39;f1&#39;,1)">Benevento</button>
-        </div>
-      </div>
-
-      <!-- SEZIONE: ANDAMENTO VENDITE -->
-      <div class="sec"><span>Andamento vendite</span></div>
-
-      <div class="qcard" id="c2">
-        <div class="qnum">03</div>
-        <div class="qtext">Percentuale venduto (sull'acquistato) al 30/04/2026<span class="req">*</span></div>
-        <div class="opts g2" id="q2">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q2&#39;,&#39;f2&#39;,2)"><span class="radio"></span>0 – 20%</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q2&#39;,&#39;f2&#39;,2)"><span class="radio"></span>20 – 40%</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q2&#39;,&#39;f2&#39;,2)"><span class="radio"></span>40 – 60%</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q2&#39;,&#39;f2&#39;,2)"><span class="radio"></span>60 – 80%</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c3">
-        <div class="qnum">04</div>
-        <div class="qtext">Rispetto alla PE25, le vendite di questa stagione sono<span class="req">*</span></div>
-        <div class="opts" id="q3">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q3&#39;,&#39;f3&#39;,3)"><span class="radio"></span>In forte crescita (oltre +20%)</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q3&#39;,&#39;f3&#39;,3)"><span class="radio"></span>In leggera crescita (+5% / +20%)</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q3&#39;,&#39;f3&#39;,3)"><span class="radio"></span>Stabili, in linea con PE25</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q3&#39;,&#39;f3&#39;,3)"><span class="radio"></span>In leggero calo (-5% / -20%)</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q3&#39;,&#39;f3&#39;,3)"><span class="radio"></span>In forte calo (oltre -20%)</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c4">
-        <div class="qnum">05</div>
-        <div class="qtext">Quale comparto sta rispondendo meglio?<span class="req">*</span></div>
-        <div class="opts g2" id="q4">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q4&#39;,&#39;f4&#39;,4)"><span class="radio"></span>Maschio</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q4&#39;,&#39;f4&#39;,4)"><span class="radio"></span>Femmina</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q4&#39;,&#39;f4&#39;,4)"><span class="radio"></span>Entrambi uguale</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q4&#39;,&#39;f4&#39;,4)"><span class="radio"></span>Unisex / neonato</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c5">
-        <div class="qnum">06</div>
-        <div class="qtext">Quale segmento performa meglio?<span class="req">*</span></div>
-        <div class="opts g2" id="q5">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q5&#39;,&#39;f5&#39;,5)"><span class="radio"></span>Corredino</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q5&#39;,&#39;f5&#39;,5)"><span class="radio"></span>Abbigliamento</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q5&#39;,&#39;f5&#39;,5)"><span class="radio"></span>Accessori</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q5&#39;,&#39;f5&#39;,5)"><span class="radio"></span>Tutto equilibrato</button>
-        </div>
-      </div>
-
-      <!-- SEZIONE: PRODOTTO -->
-      <div class="sec"><span>Prodotto</span></div>
-
-      <div class="qcard" id="c6">
-        <div class="qnum">07</div>
-        <div class="qtext">Nel corredino, quale categoria vende di più?<span class="req">*</span></div>
-        <div class="opts" id="q6">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q6&#39;,&#39;f6&#39;,6)"><span class="radio"></span>Tutine e coordinati in tricot</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q6&#39;,&#39;f6&#39;,6)"><span class="radio"></span>Tutine e coordinati in cotone</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q6&#39;,&#39;f6&#39;,6)"><span class="radio"></span>Set regalo / confezioni</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q6&#39;,&#39;f6&#39;,6)"><span class="radio"></span>Accessori neonato</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c7">
-        <div class="qnum">08</div>
-        <div class="qtext">Nell'abbigliamento, cosa performa meglio?<span class="req">*</span></div>
-        <div class="opts g2" id="q7">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q7&#39;,&#39;f7&#39;,7)"><span class="radio"></span>Abiti e completi eleganti</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q7&#39;,&#39;f7&#39;,7)"><span class="radio"></span>Abiti e completi casual</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q7&#39;,&#39;f7&#39;,7)"><span class="radio"></span>Coordinati sportivi</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q7&#39;,&#39;f7&#39;,7)"><span class="radio"></span>Tutto equilibrato</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c8">
-        <div class="qnum">09</div>
-        <div class="qtext">L'impronta della collezione dovrebbe essere<span class="req">*</span></div>
-        <div class="opts" id="q8">
-          <button type="button" class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,&#39;f8&#39;,8)">
-            <span class="radio"></span>
-            <span class="opt-rich-inner">
-              <span class="opt-rich-title">Più raffinata ed elegante</span>
-              <span class="opt-rich-sub">Capi ricercati, dettagli pregiati, occasioni speciali</span>
-            </span>
-          </button>
-          <button type="button" class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,&#39;f8&#39;,8)">
-            <span class="radio"></span>
-            <span class="opt-rich-inner">
-              <span class="opt-rich-title">Più casual e giornaliera</span>
-              <span class="opt-rich-sub">Capi pratici, comodi, uso quotidiano</span>
-            </span>
-          </button>
-          <button type="button" class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,&#39;f8&#39;,8)">
-            <span class="radio"></span>
-            <span class="opt-rich-inner">
-              <span class="opt-rich-title">Equilibrio tra i due stili</span>
-              <span class="opt-rich-sub">Metà elegante, metà casual</span>
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c9">
-        <div class="qnum">10</div>
-        <div class="qtext">Servirebbe una maggiore presenza di capi primaverili?<span class="req">*</span></div>
-        <div class="opts" id="q9">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q9&#39;,&#39;f9&#39;,9)"><span class="radio"></span>Sì, mancano molti capi primaverili</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q9&#39;,&#39;f9&#39;,9)"><span class="radio"></span>Sì, qualcosa in più sarebbe utile</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q9&#39;,&#39;f9&#39;,9)"><span class="radio"></span>No, l'assortimento è equilibrato</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q9&#39;,&#39;f9&#39;,9)"><span class="radio"></span>No, i clienti preferiscono i capi estivi</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c10">
-        <div class="qnum">11</div>
-        <div class="qtext">La fascia di taglia più richiesta è<span class="req">*</span></div>
-        <div class="opts g3" id="q10">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q10&#39;,&#39;f10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>0 – 6 mesi</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q10&#39;,&#39;f10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>6 – 12 mesi</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q10&#39;,&#39;f10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>12 – 18 mesi</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c11">
-        <div class="qnum">12</div>
-        <div class="qtext">Inserire la taglia 24 mesi sarebbe utile?<span class="req">*</span></div>
-        <div class="opts g2" id="q11">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q11&#39;,&#39;f11&#39;,11)"><span class="radio"></span>Sì, molto richiesta</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q11&#39;,&#39;f11&#39;,11)"><span class="radio"></span>Sì, qualche richiesta</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q11&#39;,&#39;f11&#39;,11)"><span class="radio"></span>No, non necessaria</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q11&#39;,&#39;f11&#39;,11)"><span class="radio"></span>Non ho riscontri</button>
-        </div>
-      </div>
-
-      <!-- SEZIONE: CAPSULE FOR EVERY ONE -->
-      <div class="sec"><span>Capsule For Every One</span></div>
-
-      <div class="qcard" id="c12">
-        <div class="qnum">13</div>
-        <div class="badge">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4fa8e0" stroke-width="1.2"></circle><path d="M3.5 5h3M5 3.5v3" stroke="#4fa8e0" stroke-width="1.2" stroke-linecap="round"></path></svg>
-          For Every One
-        </div>
-        <div class="qtext">Come sta andando la vendita della capsule For Every One?<span class="req">*</span></div>
-        <div class="opts" id="q12">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q12&#39;,&#39;f12&#39;,12)"><span class="radio"></span>Molto bene, supera le aspettative</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q12&#39;,&#39;f12&#39;,12)"><span class="radio"></span>Bene, in linea con le aspettative</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q12&#39;,&#39;f12&#39;,12)"><span class="radio"></span>Nella media, né bene né male</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q12&#39;,&#39;f12&#39;,12)"><span class="radio"></span>Sotto le aspettative</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q12&#39;,&#39;f12&#39;,12)"><span class="radio"></span>Non l'ho ordinata</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c13">
-        <div class="qnum">14</div>
-        <div class="badge">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4fa8e0" stroke-width="1.2"></circle><path d="M3.5 5h3M5 3.5v3" stroke="#4fa8e0" stroke-width="1.2" stroke-linecap="round"></path></svg>
-          For Every One
-        </div>
-        <div class="qtext">Cosa apprezza di più la tua clientela della capsule?<span class="req">*</span></div>
-        <div class="opts" id="q13">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q13&#39;,&#39;f13&#39;,13)"><span class="radio"></span>Il concept inclusivo / unisex</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q13&#39;,&#39;f13&#39;,13)"><span class="radio"></span>I colori e la grafica</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q13&#39;,&#39;f13&#39;,13)"><span class="radio"></span>La qualità dei materiali</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q13&#39;,&#39;f13&#39;,13)"><span class="radio"></span>Il prezzo competitivo</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q13&#39;,&#39;f13&#39;,13)"><span class="radio"></span>Non ho ancora feedback</button>
-        </div>
-      </div>
-
-      <!-- SEZIONE: MERCATO & CONCORRENZA -->
-      <div class="sec"><span>Mercato &amp; Concorrenza</span></div>
-
-      <div class="qcard" id="c14">
-        <div class="qnum">15</div>
-        <div class="qtext">Quali brand sono in diretta concorrenza con Mayoral Newborn nel tuo punto vendita?<span class="req">*</span></div>
-        <input class="tinput" id="competitorInput" type="text" placeholder="Es. Absorba, Chicco, Benetton..." oninput="onText(this,&#39;f14&#39;,14)">
-        <div class="input-hint">Puoi indicare uno o più brand separati da virgola</div>
-      </div>
-
-      <!-- SEZIONE: VALUTAZIONE FINALE -->
-      <div class="sec"><span>Valutazione &amp; Suggerimenti</span></div>
-
-      <div class="qcard" id="c15">
-        <div class="qnum">16 — opzionale</div>
-        <div class="qtext">Per le prossime campionature, cosa miglioreresti?</div>
-        <div class="opts" id="q15">
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Più varietà di colori e fantasie</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Più capi basic e versatili</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Materiali più sostenibili / bio</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Prezzi più competitivi</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Maggiore profondità di taglie</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Più capi primaverili leggeri</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>Più capi per occasioni speciali</button>
-          <button type="button" class="opt" onclick="pickOpt(this,&#39;q15&#39;,&#39;f15&#39;,15)"><span class="radio"></span>La collezione è già ottima così</button>
-        </div>
-      </div>
-
-      <div class="qcard" id="c16">
-        <div class="qnum">17</div>
-        <div class="qtext">Valutazione complessiva della collezione PE 2026<span class="req">*</span></div>
-        <div class="stars" id="starsRow">
-          <button type="button" class="star" onclick="setStar(1)">★</button>
-          <button type="button" class="star" onclick="setStar(2)">★</button>
-          <button type="button" class="star" onclick="setStar(3)">★</button>
-          <button type="button" class="star" onclick="setStar(4)">★</button>
-          <button type="button" class="star" onclick="setStar(5)">★</button>
-        </div>
-        <div class="star-lbl" id="starLbl">Seleziona una valutazione</div>
-      </div>
-
-    </div><!-- /form-body -->
-
-    <div class="footer">
-      <button type="submit" class="submit-btn" id="submitBtn" disabled="">Invia risposte</button>
-      <div class="gdpr">Dati trattati ai sensi del Regolamento UE 2016/679 (GDPR)</div>
+    <p class="welcome-desc">Gentile cliente, ti chiediamo di dedicare pochi minuti alla compilazione di questo questionario per raccogliere dati sull'andamento delle vendite e il tuo feedback sulla collezione.</p>
+    <div class="welcome-date">Rilevazione al 30 aprile 2026</div>
+    <div class="welcome-info">
+      <div class="welcome-info-item"><div class="welcome-info-num">17</div><div class="welcome-info-lbl">domande</div></div>
+      <div class="welcome-info-item"><div class="welcome-info-num">3'</div><div class="welcome-info-lbl">minuti</div></div>
     </div>
+    <div class="welcome-divider"></div>
+    <button class="btn-start" onclick="startForm()">Inizia il questionario <svg viewBox="0 0 18 18" fill="none"><path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    <div class="gdpr">Dati trattati ai sensi del Regolamento UE 2016/679 (GDPR)</div>
+  </div>
 
-  </form>
-</div><!-- /mainScreen -->
+  <div class="step" id="s0">
+    <div class="step-num">01 — Dati punto vendita</div>
+    <div class="step-q">Come si chiama il tuo punto vendita?</div>
+    <input class="tinput" id="nameInput" type="text" placeholder="Inserisci il nome..." oninput="onText(0)">
+    <div class="nav"><span></span>
+      <button class="btn-next" id="n0" onclick="goNext(0)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
 
-<!-- ═══════════════════════════════ SUCCESS ═══════════════════════════════ -->
-<div id="successScreen">
-  <div class="hero">
+  <div class="step" id="s1">
+    <div class="step-num">02 — Dati punto vendita</div>
+    <div class="step-q">In quale provincia si trova?</div>
+    <div class="chips" id="chips1">
+      <button class="chip" onclick="pickChip(this,&#39;chips1&#39;,1)">Napoli</button>
+      <button class="chip" onclick="pickChip(this,&#39;chips1&#39;,1)">Salerno</button>
+      <button class="chip" onclick="pickChip(this,&#39;chips1&#39;,1)">Caserta</button>
+      <button class="chip" onclick="pickChip(this,&#39;chips1&#39;,1)">Avellino</button>
+      <button class="chip" onclick="pickChip(this,&#39;chips1&#39;,1)">Benevento</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(1)">Indietro</button>
+      <button class="btn-next" id="n1" onclick="goNext(1)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s2">
+    <div class="step-num">03 — Andamento vendite</div>
+    <div class="step-q">Percentuale venduto al 30/04/2026</div>
+    <div class="opts two" id="q2">
+      <button class="opt" onclick="pickOpt(this,&#39;q2&#39;,2)"><span class="radio"></span>0 – 20%</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q2&#39;,2)"><span class="radio"></span>20 – 40%</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q2&#39;,2)"><span class="radio"></span>40 – 60%</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q2&#39;,2)"><span class="radio"></span>60 – 80%</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(2)">Indietro</button>
+      <button class="btn-next" id="n2" onclick="goNext(2)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s3">
+    <div class="step-num">04 — Andamento vendite</div>
+    <div class="step-q">Rispetto alla PE25, le vendite di questa stagione sono</div>
+    <div class="opts" id="q3">
+      <button class="opt" onclick="pickOpt(this,&#39;q3&#39;,3)"><span class="radio"></span>In forte crescita (oltre +20%)</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q3&#39;,3)"><span class="radio"></span>In leggera crescita (+5% / +20%)</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q3&#39;,3)"><span class="radio"></span>Stabili, in linea con PE25</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q3&#39;,3)"><span class="radio"></span>In leggero calo (-5% / -20%)</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q3&#39;,3)"><span class="radio"></span>In forte calo (oltre -20%)</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(3)">Indietro</button>
+      <button class="btn-next" id="n3" onclick="goNext(3)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s4">
+    <div class="step-num">05 — Andamento vendite</div>
+    <div class="step-q">Quale comparto sta rispondendo meglio?</div>
+    <div class="opts two" id="q4">
+      <button class="opt" onclick="pickOpt(this,&#39;q4&#39;,4)"><span class="radio"></span>Maschio</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q4&#39;,4)"><span class="radio"></span>Femmina</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q4&#39;,4)"><span class="radio"></span>Entrambi uguale</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q4&#39;,4)"><span class="radio"></span>Unisex / neonato</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(4)">Indietro</button>
+      <button class="btn-next" id="n4" onclick="goNext(4)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s5">
+    <div class="step-num">06 — Andamento vendite</div>
+    <div class="step-q">Quale segmento performa meglio?</div>
+    <div class="opts two" id="q5">
+      <button class="opt" onclick="pickOpt(this,&#39;q5&#39;,5)"><span class="radio"></span>Corredino</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q5&#39;,5)"><span class="radio"></span>Abbigliamento</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q5&#39;,5)"><span class="radio"></span>Accessori</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q5&#39;,5)"><span class="radio"></span>Tutto equilibrato</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(5)">Indietro</button>
+      <button class="btn-next" id="n5" onclick="goNext(5)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s6">
+    <div class="step-num">07 — Prodotto</div>
+    <div class="step-q">Nel corredino, quale categoria vende di più?</div>
+    <div class="opts" id="q6">
+      <button class="opt" onclick="pickOpt(this,&#39;q6&#39;,6)"><span class="radio"></span>Tutine e coordinati in tricot</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q6&#39;,6)"><span class="radio"></span>Tutine e coordinati in cotone</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q6&#39;,6)"><span class="radio"></span>Set regalo / confezioni</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q6&#39;,6)"><span class="radio"></span>Accessori neonato</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(6)">Indietro</button>
+      <button class="btn-next" id="n6" onclick="goNext(6)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s7">
+    <div class="step-num">08 — Prodotto</div>
+    <div class="step-q">Nell'abbigliamento, cosa performa meglio?</div>
+    <div class="opts two" id="q7">
+      <button class="opt" onclick="pickOpt(this,&#39;q7&#39;,7)"><span class="radio"></span>Abiti e completi eleganti</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q7&#39;,7)"><span class="radio"></span>Abiti e completi casual</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q7&#39;,7)"><span class="radio"></span>Coordinati sportivi</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q7&#39;,7)"><span class="radio"></span>Tutto equilibrato</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(7)">Indietro</button>
+      <button class="btn-next" id="n7" onclick="goNext(7)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s8">
+    <div class="step-num">09 — Prodotto</div>
+    <div class="step-q">L'impronta della collezione dovrebbe essere</div>
+    <div class="opts" id="q8">
+      <button class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,8)"><span class="radio"></span><span><span class="opt-rich-title">Più raffinata ed elegante</span><br><span class="opt-rich-sub">Capi ricercati, dettagli pregiati, occasioni speciali</span></span></button>
+      <button class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,8)"><span class="radio"></span><span><span class="opt-rich-title">Più casual e giornaliera</span><br><span class="opt-rich-sub">Capi pratici, comodi, uso quotidiano</span></span></button>
+      <button class="opt opt-rich" onclick="pickOpt(this,&#39;q8&#39;,8)"><span class="radio"></span><span><span class="opt-rich-title">Equilibrio tra i due stili</span><br><span class="opt-rich-sub">Metà elegante, metà casual</span></span></button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(8)">Indietro</button>
+      <button class="btn-next" id="n8" onclick="goNext(8)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s9">
+    <div class="step-num">10 — Prodotto</div>
+    <div class="step-q">Servirebbe una maggiore presenza di capi primaverili?</div>
+    <div class="opts" id="q9">
+      <button class="opt" onclick="pickOpt(this,&#39;q9&#39;,9)"><span class="radio"></span>Sì, mancano molti capi primaverili</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q9&#39;,9)"><span class="radio"></span>Sì, qualcosa in più sarebbe utile</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q9&#39;,9)"><span class="radio"></span>No, l'assortimento è equilibrato</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q9&#39;,9)"><span class="radio"></span>No, i clienti preferiscono i capi estivi</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(9)">Indietro</button>
+      <button class="btn-next" id="n9" onclick="goNext(9)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s10">
+    <div class="step-num">11 — Prodotto</div>
+    <div class="step-q">La fascia di taglia più richiesta è</div>
+    <div class="opts three" id="q10">
+      <button class="opt" onclick="pickOpt(this,&#39;q10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>0 – 6 mesi</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>6 – 12 mesi</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q10&#39;,10)" style="justify-content:center;text-align:center;"><span class="radio"></span>12 – 18 mesi</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(10)">Indietro</button>
+      <button class="btn-next" id="n10" onclick="goNext(10)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s11">
+    <div class="step-num">12 — Prodotto</div>
+    <div class="step-q">Inserire la taglia 24 mesi sarebbe utile?</div>
+    <div class="opts two" id="q11">
+      <button class="opt" onclick="pickOpt(this,&#39;q11&#39;,11)"><span class="radio"></span>Sì, molto richiesta</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q11&#39;,11)"><span class="radio"></span>Sì, qualche richiesta</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q11&#39;,11)"><span class="radio"></span>No, non necessaria</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q11&#39;,11)"><span class="radio"></span>Non ho riscontri</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(11)">Indietro</button>
+      <button class="btn-next" id="n11" onclick="goNext(11)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s12">
+    <div class="step-num">13 — Capsule For Every One</div>
+    <div class="step-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="white" stroke-width="1.2"></circle><path d="M3.5 5h3M5 3.5v3" stroke="white" stroke-width="1.2" stroke-linecap="round"></path></svg>For Every One</div>
+    <div class="step-q">Come sta andando la vendita della capsule For Every One?</div>
+    <div class="opts" id="q12">
+      <button class="opt" onclick="pickOpt(this,&#39;q12&#39;,12)"><span class="radio"></span>Molto bene, supera le aspettative</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q12&#39;,12)"><span class="radio"></span>Bene, in linea con le aspettative</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q12&#39;,12)"><span class="radio"></span>Nella media, né bene né male</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q12&#39;,12)"><span class="radio"></span>Sotto le aspettative</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q12&#39;,12)"><span class="radio"></span>Non l'ho ordinata</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(12)">Indietro</button>
+      <button class="btn-next" id="n12" onclick="goNext(12)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s13">
+    <div class="step-num">14 — Capsule For Every One</div>
+    <div class="step-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="white" stroke-width="1.2"></circle><path d="M3.5 5h3M5 3.5v3" stroke="white" stroke-width="1.2" stroke-linecap="round"></path></svg>For Every One</div>
+    <div class="step-q">Cosa apprezza di più la tua clientela della capsule?</div>
+    <div class="opts" id="q13">
+      <button class="opt" onclick="pickOpt(this,&#39;q13&#39;,13)"><span class="radio"></span>Il concept inclusivo / unisex</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q13&#39;,13)"><span class="radio"></span>I colori e la grafica</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q13&#39;,13)"><span class="radio"></span>La qualità dei materiali</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q13&#39;,13)"><span class="radio"></span>Il prezzo competitivo</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q13&#39;,13)"><span class="radio"></span>Non ho ancora feedback</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(13)">Indietro</button>
+      <button class="btn-next" id="n13" onclick="goNext(13)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s14">
+    <div class="step-num">15 — Mercato &amp; Concorrenza</div>
+    <div class="step-q">Quali brand sono in diretta concorrenza con Mayoral Newborn nel tuo punto vendita?</div>
+    <input class="tinput" id="competitorInput" type="text" placeholder="Scrivi qui..." oninput="onText(14)">
+    <div class="nav"><button class="btn-back" onclick="goBack(14)">Indietro</button>
+      <button class="btn-next" id="n14" onclick="goNext(14)" disabled="">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s15">
+    <div class="step-num">16 — Suggerimenti <span style="opacity:0.6;font-size:11px;font-weight:400;">opzionale</span></div>
+    <div class="step-q">Per le prossime campionature, cosa miglioreresti?</div>
+    <div class="opts" id="q15">
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Più varietà di colori e fantasie</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Più capi basic e versatili</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Materiali più sostenibili / bio</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Prezzi più competitivi</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Più capi primaverili leggeri</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>Più capi per occasioni speciali</button>
+      <button class="opt" onclick="pickOpt(this,&#39;q15&#39;,15)"><span class="radio"></span>La collezione è già ottima così</button>
+    </div>
+    <div class="nav"><button class="btn-back" onclick="goBack(15)">Indietro</button>
+      <button class="btn-next" id="n15" onclick="goNext(15)">Avanti <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+
+  <div class="step" id="s16">
+    <div class="step-num">17 — Valutazione finale</div>
+    <div class="step-q">Valutazione complessiva della collezione PE 2026</div>
+    <div class="stars">
+      <button class="star" onclick="setStar(1)">★</button>
+      <button class="star" onclick="setStar(2)">★</button>
+      <button class="star" onclick="setStar(3)">★</button>
+      <button class="star" onclick="setStar(4)">★</button>
+      <button class="star" onclick="setStar(5)">★</button>
+    </div>
+    <div class="star-lbl" id="slbl" style="color:rgba(255,255,255,0.6);">Seleziona una valutazione</div>
+    <div class="nav"><button class="btn-back" onclick="goBack(16)">Indietro</button>
+      <button class="btn-next" id="n16" onclick="doSubmit()" disabled="">Invia risposte <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="successWrap" style="display:none;">
+  <div class="top">
     <div class="logo-wrap" style="display: none;">
-      <img src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
+      <img class="logo" src="file:///C:/Users/josef/Downloads/logo.png" alt="Mayoral Newborn" onerror="this.parentElement.style.display=&#39;none&#39;">
     </div>
   </div>
-  <div style="max-width:680px;margin:0 auto;padding:4rem 2rem;text-align:center;">
+  <div class="success-screen" style="display:block;">
     <div class="success-circle">
-      <svg viewBox="0 0 30 30" fill="none"><path d="M7 15l6 6 10-12" stroke="#4fa8e0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <svg viewBox="0 0 32 32" fill="none"><path d="M7 16l7 7 11-14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </div>
     <div class="success-tag">Grazie</div>
-    <div id="thankName">Risposte registrate con successo</div>
+    <div class="success-name" id="thankName">Risposte registrate!</div>
     <p class="success-sub">Il tuo contributo è prezioso per migliorare<br>la prossima collezione Mayoral Newborn.</p>
-    <div class="success-divider"></div>
+    <div class="success-div"></div>
     <div class="success-brand">Mayoral Newborn — PE 2026</div>
   </div>
 </div>
 
 <script>
-  const REQUIRED_IDX = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,16];
-  const filled = new Set();
-  filled.add(15); // opzionale
+const TOTAL = 17;
+const ans = new Array(TOTAL).fill(null);
+ans[15] = 'n/a';
+let cur = -1;
 
-  function checkAll() {
-    const ok = REQUIRED_IDX.every(i => filled.has(i));
-    document.getElementById('submitBtn').disabled = !ok;
-    const done = REQUIRED_IDX.filter(i => filled.has(i)).length;
-    document.getElementById('progFill').style.width = Math.round(done / 16 * 100) + '%';
-    document.getElementById('progLabel').textContent = done + ' / 16 domande completate';
+function startForm() {
+  document.getElementById('welcomeScreen').style.display = 'none';
+  cur = 0;
+  document.getElementById('s0').classList.add('active');
+  document.getElementById('stepCount').textContent = '1 / 17';
+  window.scrollTo(0,0);
+}
+function goNext(i) {
+  document.getElementById('s'+i).classList.remove('active');
+  cur = i + 1;
+  document.getElementById('s'+cur).classList.add('active');
+  updateProg();
+  window.scrollTo(0,0);
+}
+function goBack(i) {
+  document.getElementById('s'+i).classList.remove('active');
+  cur = i - 1;
+  if (cur < 0) {
+    document.getElementById('welcomeScreen').style.display = 'block';
+    document.getElementById('stepCount').textContent = '';
+    document.getElementById('pf').style.width = '0%';
+  } else {
+    document.getElementById('s'+cur).classList.add('active');
+    updateProg();
   }
-
-  function onText(input, fieldId, idx) {
-    const v = input.value.trim();
-    document.getElementById(fieldId).value = v;
-    if (v.length > 0) {
-      filled.add(idx);
-      document.getElementById('c' + idx).classList.add('done');
-    } else {
-      filled.delete(idx);
-      document.getElementById('c' + idx).classList.remove('done');
-    }
-    checkAll();
-  }
-
-  function pickOpt(btn, groupId, fieldId, idx) {
-    document.getElementById(groupId).querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
-    btn.classList.add('sel');
-    const title = btn.querySelector('.opt-rich-title');
-    document.getElementById(fieldId).value = title ? title.textContent.trim() : btn.textContent.trim();
-    filled.add(idx);
-    document.getElementById('c' + idx).classList.add('done');
-    checkAll();
-  }
-
-  function pickChip(btn, groupId, fieldId, idx) {
-    document.getElementById(groupId).querySelectorAll('.chip').forEach(b => b.classList.remove('sel'));
-    btn.classList.add('sel');
-    document.getElementById(fieldId).value = btn.textContent.trim();
-    filled.add(idx);
-    document.getElementById('c' + idx).classList.add('done');
-    checkAll();
-  }
-
-  function setStar(n) {
-    document.querySelectorAll('.star').forEach((s,i) => s.classList.toggle('on', i < n));
-    const labels = ['','Scarsa','Sufficiente','Buona','Ottima','Eccellente'];
-    document.getElementById('starLbl').textContent = labels[n] + ' — ' + n + ' / 5';
-    document.getElementById('f16').value = n + '/5 — ' + labels[n];
-    filled.add(16);
-    document.getElementById('c16').classList.add('done');
-    checkAll();
-  }
-
+  window.scrollTo(0,0);
+}
+function updateProg() {
+  document.getElementById('pf').style.width = Math.round((cur+1)/TOTAL*100) + '%';
+  document.getElementById('stepCount').textContent = (cur+1) + ' / ' + TOTAL;
+}
+function onText(i) {
+  const id = i === 0 ? 'nameInput' : 'competitorInput';
+  const v = document.getElementById(id).value.trim();
+  ans[i] = v.length > 0 ? v : null;
+  document.getElementById('n'+i).disabled = v.length === 0;
+}
+function pickOpt(btn, groupId, i) {
+  document.getElementById(groupId).querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  const t = btn.querySelector('.opt-rich-title');
+  ans[i] = t ? t.textContent.trim() : btn.textContent.trim();
+  document.getElementById('n'+i).disabled = false;
+}
+function pickChip(btn, groupId, i) {
+  document.getElementById(groupId).querySelectorAll('.chip').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  ans[i] = btn.textContent.trim();
+  document.getElementById('n'+i).disabled = false;
+}
+function setStar(n) {
+  ans[16] = n + '/5';
+  document.querySelectorAll('.star').forEach((s,i) => s.classList.toggle('on', i < n));
+  const lbs = ['','Scarsa','Sufficiente','Buona','Ottima','Eccellente'];
+  document.getElementById('slbl').textContent = lbs[n] + ' — ' + n + ' / 5';
+  document.getElementById('n16').disabled = false;
+}
+function doSubmit() {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcPn99XJaDflXIBNdtsq-JZSiqxLVPxkc4Y9lCy4XHMp3liUX4_JN_frpnWbMMWg-E/exec";
-
-  document.getElementById('mainForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const btn = document.getElementById('submitBtn');
-    btn.textContent = 'Invio in corso...';
-    btn.disabled = true;
-
-    const payload = {
-      f0:  document.getElementById('f0').value,
-      f1:  document.getElementById('f1').value,
-      f2:  document.getElementById('f2').value,
-      f3:  document.getElementById('f3').value,
-      f4:  document.getElementById('f4').value,
-      f5:  document.getElementById('f5').value,
-      f6:  document.getElementById('f6').value,
-      f7:  document.getElementById('f7').value,
-      f8:  document.getElementById('f8').value,
-      f9:  document.getElementById('f9').value,
-      f10: document.getElementById('f10').value,
-      f11: document.getElementById('f11').value,
-      f12: document.getElementById('f12').value,
-      f13: document.getElementById('f13').value,
-      f14: document.getElementById('f14').value,
-      f15: document.getElementById('f15').value,
-      f16: document.getElementById('f16').value
-    };
-
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(() => {
-      const name = document.getElementById('nameInput').value.trim();
-      document.getElementById('thankName').textContent = name ? 'Grazie, ' + name + '!' : 'Risposte registrate con successo';
-      document.getElementById('mainScreen').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
-      window.scrollTo(0,0);
-    })
-    .catch(() => {
-      const name = document.getElementById('nameInput').value.trim();
-      document.getElementById('thankName').textContent = name ? 'Grazie, ' + name + '!' : 'Risposte registrate con successo';
-      document.getElementById('mainScreen').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
-      window.scrollTo(0,0);
-    });
-  });
+  const payload = {};
+  ans.forEach((v,i) => payload['f'+i] = v || '');
+  fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+  const name = ans[0] || '';
+  document.getElementById('thankName').textContent = name ? 'Grazie, ' + name + '!' : 'Risposte registrate!';
+  document.getElementById('mainWrap').style.display = 'none';
+  document.getElementById('successWrap').style.display = 'block';
+}
 </script>
 
 
